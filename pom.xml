@@ -9,6 +9,8 @@
     <description>聚合服务</description>
     <packaging>pom</packaging>
 
+
+
     <modules>
         <module>mall-coupon</module>
         <module>mall-member</module>
