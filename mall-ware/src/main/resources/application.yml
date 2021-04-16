@@ -5,6 +5,10 @@ spring:
     url: jdbc:mysql://192.168.1.43:3306/mall_wms
     username: mall
     password: mall
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.1.43:8848
   #应用名称
   application:
     name: mall-ware
