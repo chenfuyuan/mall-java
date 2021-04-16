@@ -3,9 +3,7 @@ package com.learn.project.mall.member.controller;
 import java.util.Arrays;
 import java.util.Map;
 
-import com.learn.project.mall.member.feign.CouponFeignService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -34,29 +32,6 @@ public class MemberController {
     @Autowired
     private MemberService memberService;
 
-    @Autowired
-    private CouponFeignService couponFeignService;
-
-    @Value("${member.name}")
-    private String name;
-
-    @RequestMapping("/name")
-    public R getNameTest(){
-        return R.ok().put("name", name);
-    }
-
-    /**
-     * 获取用户优惠券
-     * @return
-     */
-    @RequestMapping("/coupons")
-    public R coupons() {
-        MemberEntity memberEntity = new MemberEntity();
-        memberEntity.setNickname(name);
-
-        R couponsResponse = couponFeignService.memberCoupons();
-        return R.ok().put("member", memberEntity).put("coupons", couponsResponse.get("coupons"));
-    }
     /**
      * 列表
      */
