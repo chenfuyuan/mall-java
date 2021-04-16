@@ -5,6 +5,8 @@ import java.util.Map;
 
 import com.learn.project.mall.member.feign.CouponFeignService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,6 +28,7 @@ import com.learn.project.mall.common.util.R;
  * @date 2021-04-16 15:42:03
  */
 @RestController
+@RefreshScope
 @RequestMapping("member/member")
 public class MemberController {
     @Autowired
@@ -33,10 +36,23 @@ public class MemberController {
 
     @Autowired
     private CouponFeignService couponFeignService;
+
+    @Value("${member.name}")
+    private String name;
+
+    @RequestMapping("/name")
+    public R getNameTest(){
+        return R.ok().put("name", name);
+    }
+
+    /**
+     * 获取用户优惠券
+     * @return
+     */
     @RequestMapping("/coupons")
     public R coupons() {
         MemberEntity memberEntity = new MemberEntity();
-        memberEntity.setNickname("张三");
+        memberEntity.setNickname(name);
 
         R couponsResponse = couponFeignService.memberCoupons();
         return R.ok().put("member", memberEntity).put("coupons", couponsResponse.get("coupons"));
