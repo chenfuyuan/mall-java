@@ -1,0 +1,20 @@
+package com.learn.project.mall.ware.service;
+
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.learn.project.mall.common.util.PageUtil;
+import com.learn.project.mall.ware.entity.PurchaseEntity;
+
+import java.util.Map;
+
+/**
+ * 采购信息
+ *
+ * @author chenfuyuan
+ * @email chenfuyuan0713@163.com
+ * @date 2021-04-16 15:48:08
+ */
+public interface PurchaseService extends IService<PurchaseEntity> {
+
+    PageUtil queryPage(Map<String, Object> params);
+}
+

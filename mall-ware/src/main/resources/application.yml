@@ -1,0 +1,16 @@
+#配置数据源
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.1.43:3306/mall_wms
+    username: mall
+    password: mall
+
+#配置mapper扫描路径 mapper-locations
+#配置主键自增 id-type
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+
