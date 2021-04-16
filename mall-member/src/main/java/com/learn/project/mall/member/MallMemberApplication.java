@@ -7,7 +7,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@MapperScan("com.learn.project.mall.member")
+@MapperScan("com.learn.project.mall.member.dao")
 public class MallMemberApplication {
 
     public static void main(String[] args) {
