@@ -35,6 +35,13 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+        <!--mall-common-->
+        <dependency>
+            <groupId>com.learn.project</groupId>
+            <artifactId>mall-common</artifactId>
+        </dependency>
+
     </dependencies>
 
 
