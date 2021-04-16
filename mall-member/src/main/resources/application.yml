@@ -1,10 +1,13 @@
-#配置数据源
 spring:
+  #配置数据源
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://192.168.1.43:3306/mall_ums
     username: mall
     password: mall
+  #应用名称
+  application:
+    name: mall-member
 
 #配置mapper扫描路径 mapper-locations
 #配置主键自增 id-type
@@ -13,4 +16,8 @@ mybatis-plus:
   global-config:
     db-config:
       id-type: auto
+
+#应用服务 WEB 访问端口
+server:
+  port: 8000
 
