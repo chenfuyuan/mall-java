@@ -1,0 +1,25 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.1.43:8848
+    gateway:
+      routes:
+        - id : baidu
+          uri : http://www.baidu.com
+          predicates :
+            - Query=url,baidu
+          filters :
+            - AddRequestParameter=foo, bar
+
+
+  #应用名称
+  application:
+    name: mall-gateway
+
+
+#应用服务 WEB 访问端口
+server:
+  port: 88
+
+
