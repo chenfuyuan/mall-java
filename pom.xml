@@ -48,6 +48,7 @@
         <!--人人开源-代码生成器-->
         <module>renren-generator</module>
         <module>mall-common</module>
+        <module>mall-gateway</module>
     </modules>
 
     <!--依赖版本管理-->
